@@ -9,6 +9,7 @@ const App = () => {
   const [correct, setCorrect] = useState(0);
   const [incorrect, setIncorrect] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
+  const [isTimeOver, setIsTimeOver] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const App = () => {
           setCount(60);
           setInputValue("");
           setWordIndex(0);
+          setIsTimeOver(true);
         }
       }, 1000);
     }
@@ -51,6 +53,7 @@ const App = () => {
     setIsStarted(true);
     setIncorrect(0);
     setCorrect(0);
+    setIsTimeOver(false);
   };
   return (
     <main>
@@ -95,7 +98,7 @@ const App = () => {
           </div>
         )}
       </form>
-      {isStarted ? (
+      {isTimeOver ? (
         <div className="Card">
           <div>
             {words.map((item, index) => {
@@ -107,12 +110,10 @@ const App = () => {
         ""
       )}
       {!isStarted ? (
-        ""
-      ) : (
         <footer>
           <div>
             <p>Words Per Minute</p>
-            <h3>{correct + incorrect}</h3>
+            <h3>{((correct + incorrect) / 5) * 60}</h3>
           </div>
           <div>
             <p>Errors</p>
@@ -127,6 +128,8 @@ const App = () => {
             )}
           </div>
         </footer>
+      ) : (
+        ""
       )}
     </main>
   );
