@@ -98,7 +98,7 @@ const App = () => {
           </div>
         )}
       </form>
-      {isTimeOver ? (
+      {isStarted ? (
         <div className="Card">
           <div>
             {words.map((item, index) => {
@@ -109,7 +109,7 @@ const App = () => {
       ) : (
         ""
       )}
-      {!isStarted ? (
+      {isTimeOver ? (
         <footer>
           <div>
             <p>Words Per Minute</p>
