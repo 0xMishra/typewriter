@@ -107,10 +107,12 @@ const App = () => {
         ""
       )}
       {!isStarted ? (
+        ""
+      ) : (
         <footer>
           <div>
             <p>Words Per Minute</p>
-            <h3>{((correct + incorrect) / 5) * 60}</h3>
+            <h3>{correct + incorrect}</h3>
           </div>
           <div>
             <p>Errors</p>
@@ -125,8 +127,6 @@ const App = () => {
             )}
           </div>
         </footer>
-      ) : (
-        ""
       )}
     </main>
   );
