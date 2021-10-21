@@ -113,7 +113,7 @@ const App = () => {
         <footer>
           <div>
             <p>Words Per Minute</p>
-            <h3>{((correct + incorrect) / 5)/1}</h3>
+            <h3>{(correct + incorrect)}</h3>
           </div>
           <div>
             <p>Errors</p>
